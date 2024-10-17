@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+        }
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .logo span {
+            color: #00bfff;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 16px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        .nav-links a:hover {
+            background-color: #f0f0f0;
+        }
+        .offer {
+            background-color: orange;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .login-btn {
+            color: #007bff;
+            font-weight: bold;
+            border: 1px solid #007bff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background: none;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background-color: #f0f0f0;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .search-bar input {
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Main Section */
+        .main-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .main-section h1 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .main-section p {
+            font-size: 18px;
+            color: #555;
+        }
+        .main-section h1 span {
+            color: #007bff;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+            padding: 20px;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+        .card h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .card .duration {
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 12px;
+            display: inline-block;
+        }
+        .card p {
+            font-size: 14px;
+            color: #555;
+        }
+        .card a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Certification Section */
+        .cert-section {
+            padding: 40px 20px;
+        }
+        .cert-section h2 {
+            font-size: 24px;
+            color: #007bff;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .cert-section .subheading {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .cert-section .features {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: #555;
+        }
+        .cert-section .features span {
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .cert-section .special-offer {
+            background-color: #e6f3ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .cert-section .special-offer h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .cert-section .special-offer p {
+            font-size: 18px;
+            color: #333;
+        }
+        .cert-section .special-offer img {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .stats-section {
+            background-color: #f7fbff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .stats-section h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stats-section p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .stat-box h3 {
+            font-size: 28px;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .stat-box p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .divider {
+            height: 40px;
+            width: 1px;
+            background-color: #d3e2f3;
+            margin: 0 10px;
+        }
+        .top{
+    text-align: center;
+  }
+    .gallery-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+  }
+  .gallery {
+      display: flex;
+      animation: scroll 20s linear infinite;
+  }
+  .gallery:hover {
+      animation-play-state: paused;
+  }
+  .gallery img {
+      width: 200px;
+      height: 150px;
+      margin-right: 10px;
+      transition: filter 0.3s ease;
+      filter: grayscale(100%);
+  }
+  .gallery img:hover {
+      filter: grayscale(0%);
+  }
+  @keyframes scroll {
+      0% {
+          transform: translateX(0);
+      }
+      100% {
+          transform: translateX(-100%);
+      }
+  }
+  /* Testimonial Section */
+  .testimonial-section {
+        background-color: #f0f8ff;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .testimonial-section h2 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .testimonial-section p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    .testimonial-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: left;
+        justify-content: space-between; 
+    }
+
+    .testimonial-card img {
+        border-radius: 10px;
+        width: 150px;
+        height: 150px;
+    }
+
+    .testimonial-content {
+        flex: 1;
+    }
+
+    .testimonial-content .quote {
+        font-size: 24px;
+        color: #007bff;
+    }
+
+    .testimonial-content .stars {
+        color: #ffbf00;
+        margin: 10px 0;
+    }
+
+    .testimonial-content h4 {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+    .testimonial-content p {
+        font-size: 14px;
+        color: #333;
+    }
+    
+    .cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: left;
+        padding: 20px;
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .card h3 {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    .card .duration {
+        background-color: #e0e0e0;
+        border-radius: 20px;
+        padding: 5px 10px;
+        font-size: 12px;
+        display: inline-block;
+    }
+
+    .card p {
+        font-size: 14px;
+        color: #555;
+    }
+
+    .card a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .card a:hover {
+        text-decoration: underline;
+    }
+
+    /* Educators Section */
+    .educators-section {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .educators-section h2 {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .educators-section p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    .educators-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .educator-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 250px;
+        text-align: left;
+        position: relative;
+    }
+
+    .educator-card img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .experience-badge {
+        background-color: #007bff;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: bold;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .educator-card h4 {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+    .educator-card p {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1f1f1f;
+    padding: 20px;
+  }
+  
+  .footer-column {
+    color: #fff;
+  }
+  
+  .footer-column ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin: 10px 0;
+  }
+  
+  .footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-social {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-social a {
+    margin-right: 15px;
+  }
+  
+  .footer-social img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .courses-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1f1f1f;
+    padding: 20px;
+    color: #fff;
+  }
+  
+  .course-category {
+    width: 23%;
+  }
+  
+  .course-category h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .course-category ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .course-category ul li {
+    margin: 8px 0;
+  }
+  
+  .course-category ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .course-category ul li a:hover {
+    text-decoration: underline;
+  }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .educators-container {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">
+            INTERNS<span>HALA TRAININGS</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">Career Ki Guarantee</a>
+            <a href="#">Certification courses <span class="offer">OFFER</span></a>
+            <a href="#">Placement Guarantee courses</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <button class="login-btn">Login</button>
+        </div>
+    </div>
+
+    <!-- Main Section -->
+    <div class="main-section">
+        <h1>Give the <span>Best Start</span> to Your Career</h1>
+        <p>Learn, practice, and get hired!</p>
+
+        <div class="cards">
+            <!-- Certification Course Card -->
+            <div class="card">
+                <img src="certification courses.jpg" alt="Certification Course Image">
+                <h3>Certification courses</h3>
+                <span class="duration">4-8 weeks</span>
+                <p>Learn in-demand skills and get certified</p>
+                <a href="#">Explore now ➔</a>
+            </div>
+
+            <!-- Placement Guarantee Course Card -->
+            <div class="card">
+                <img src="job placement.png" alt="Placement Course Image">
+                <h3>Placement Guarantee courses</h3>
+                <span class="duration">4-12 months</span>
+                <p>Upskill and get a guaranteed placement</p>
+                <a href="#">Explore now ➔</a>
+            </div>
+        </div>
+    </div>
+    <h3 class="top">Top companies hiring from us!!</h3>
+    <div class="gallery-container">
+        <div class="gallery">
+            <img src="microsoft.png" alt="Image 1">
+            <img src="swiggy.jpg" alt="Image 2">
+            <img src="meta.jpg" alt="Image 3">
+            <img src="zomato.png" alt="Image 4">
+            <img src="youtube.png" alt="Image 5">
+            <img src="pvr.jpg" alt="Image 6">
+            <img src="paytm.jpg" alt="Image 7">
+            <img src="netflix.jpg" alt="Image 8">
+            <img src="amazon.png" alt="Image 9">
+        </div>
+    </div>
+
+    <!-- Certification Section -->
+    <div class="cert-section">
+        <h2>CERTIFICATION COURSES <span class="duration">4-8 weeks</span></h2>
+        <div class="subheading">Fastest way to build your CV</div>
+        <div class="features">
+            <div><span>✔</span> Learn at your own schedule</div>
+            <div><span>✔</span> Practical learning</div>
+            <div><span>✔</span> Government-certified online training</div>
+        </div>
+        <div class="special-offer">
+            <h3>Special offer for your college!</h3>
+            <p>Get <b>FLAT 80% OFF</b> on all online trainings</p>
+            <!-- <img src="https://via.placeholder.com/700x150" alt="Special Offer Image"> -->
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <h2>Giving flight to your ambitions</h2>
+        <p>Real success requires the right skillset. Through our online courses, you too can give wings to your dreams.</p>
+        <div class="stats-container">
+            <div class="stat-box">
+                <h3>600K+</h3>
+                <p>Learners</p>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+                <h3>200M+</h3>
+                <p>Learning Minutes</p>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+                <h3>4.5/5</h3>
+                <p>Average rating</p>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+                <h3>1.3M+</h3>
+                <p>Placements</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="testimonial-section">
+        <h2>Our students, making us proud everyday!</h2>
+        <p>Let our success stories do the talking</p>
+
+        <div class="testimonial-card">
+            <img src="girl student.jpg" alt="Student Image">
+            <div class="testimonial-content">
+                <span class="quote">“</span>
+                <p>I developed an interest in HR Management and came across Internshala Trainings, the courses were
+                    affordable with great content. The best part was that they provided me with a lot of practical
+                    projects to work on, which landed me my first internship! I'll be forever grateful to Internshala!
+                </p>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <h4>Bhakti Karekar</h4>
+                <p>Weligkar Institute of Management</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="testimonial-card">
+        <img src="boy student.png" alt="Student Image">
+        <div class="testimonial-content">
+            <span class="quote">“</span>
+            <p>I took Angular course in 2nd year of my engineering degree. The tutor explained conecepts using proper examples and implementation. After this course, I worked as a full stack developer and I am currently working as a software engineer at Persistent Systems.
+            </p>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <h4>Nidhey Indurkar</h4>
+            <p>Anjuman College of Engineering & Technology</p>
+        </div>
+    </div>
+</div>
+
+    
+    
+    <section class="educators-section">
+        <h2>Meet your super-skilled educators</h2>
+        <p>Our top-notch instructors have years of experience from companies such as Google, IBM, and McKinsey, and more.</p>
+
+        <div class="educators-container">
+            <div class="educator-card">
+                <img src="girl student.jpg" alt="Anuj Kalbalia">
+                <span class="experience-badge">12 YEARS</span>
+                <h4>Anuj Kalbalia (Ex-IBM)</h4>
+                <p>Educator, Web Development</p>
+                <p>• Ex-CodeChef, Internshala<br>• NIT Durgapur alumnus</p>
+            </div>
+
+            <div class="educator-card">
+                <img src="girl_student.png" alt="Tripta Singh">
+                <span class="experience-badge">11 YEARS</span>
+                <h4>Tripta Singh (Ex-McKinsey)</h4>
+                <p>Educator, Advanced Excel</p>
+                <p>• Ex-Director of Content Development, Knowledge Platform<br>• LSE Alumna</p>
+            </div>
+
+            <div class="educator-card">
+                <img src="boy student.png" alt="Kunal Jain">
+                <span class="experience-badge">15 YEARS</span>
+                <h4>Kunal Jain (Ex-Capital One)</h4>
+                <p>Educator, Data Science</p>
+                <p>• Ex-Aviva, IIT Bombay alumnus<br>• Founder of Analytics Vidhya</p>
+            </div>
+
+            <div class="educator-card">
+                <img src="girl_student.png" alt="Geetika Singh">
+                <span class="experience-badge">12 YEARS</span>
+                <h4>Geetika Singh (Ex-HSBC)</h4>
+                <p>Educator, Human Resource Management</p>
+                <p>• Ex-Accenture, Google, Uber, & Hero MotoCorp<br>• University of Essex alumna</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="courses-container">
+        <div class="course-category">
+          <h3>Programming</h3>
+          <ul>
+            <li><a href="#">Web Development Course</a></li>
+            <li><a href="#">Programming with Python Course</a></li>
+            <li><a href="#">Programming with C and C++ Course</a></li>
+            <li><a href="#">Core Java Course</a></li>
+            <li><a href="#">Android App Development Course</a></li>
+            <li><a href="#">Ethical Hacking Course</a></li>
+            <li><a href="#">React Course</a></li>
+            <li><a href="#">Data Structures & Algorithms Course</a></li>
+            <li><a href="#">Clinical Trial Analysis & Reporting Course</a></li>
+            <li><a href="#">MATLAB® Course</a></li>
+            <li><a href="#">Software Testing Course</a></li>
+            <li><a href="#">Cloud Computing with AWS Course</a></li>
+            <li><a href="#">PLC Programming Course</a></li>
+            <li><a href="#">Product Management Course</a></li>
+            <li><a href="#">Node JS Course</a></li>
+          </ul>
+        </div>
+      
+        <div class="course-category">
+          <h3>Business & Management</h3>
+          <ul>
+            <li><a href="#">Digital Marketing Course</a></li>
+            <li><a href="#">Advanced Excel Course</a></li>
+            <li><a href="#">Financial Modeling and Valuation Course</a></li>
+            <li><a href="#">Business Analytics Course</a></li>
+            <li><a href="#">Human Resource Management Course</a></li>
+            <li><a href="#">Business Communication Skills Course</a></li>
+            <li><a href="#">Stock Market Trading Course</a></li>
+            <li><a href="#">Tally Course</a></li>
+            <li><a href="#">SQL for Data Analytics Course</a></li>
+            <li><a href="#">Advanced Human Resource Management Course</a></li>
+            <li><a href="#">Product Management Course</a></li>
+            <li><a href="#">Personal Finance 101 Course</a></li>
+          </ul>
+        </div>
+      
+        <div class="course-category">
+          <h3>Core Engineering</h3>
+          <ul>
+            <li><a href="#">AutoCAD Course</a></li>
+            <li><a href="#">VLSI Design Course</a></li>
+            <li><a href="#">SOLIDWORKS Course</a></li>
+            <li><a href="#">MATLAB® Course</a></li>
+            <li><a href="#">Ansys Course</a></li>
+            <li><a href="#">CATIA Course</a></li>
+            <li><a href="#">STAAD Pro Course</a></li>
+            <li><a href="#">PLC Programming Course</a></li>
+            <li><a href="#">Arduino Course</a></li>
+            <li><a href="#">AutoCAD 3D Course</a></li>
+            <li><a href="#">Advanced SOLIDWORKS Course</a></li>
+            <li><a href="#">Internet of Things Course</a></li>
+            <li><a href="#">Siemens NX Course</a></li>
+            <li><a href="#">3D Printing Course</a></li>
+            <li><a href="#">Embedded Systems Course</a></li>
+          </ul>
+        </div>
+      
+        <div class="course-category">
+          <h3>Data Science</h3>
+          <ul>
+            <li><a href="#">Machine Learning Course</a></li>
+            <li><a href="#">Advanced Excel Course</a></li>
+            <li><a href="#">Data Science Course</a></li>
+            <li><a href="#">Business Analytics Course</a></li>
+            <li><a href="#">Clinical Trial Analysis & Reporting Course</a></li>
+            <li><a href="#">SQL for Data Analytics Course</a></li>
+            <li><a href="#">Power BI Course</a></li>
+            <li><a href="#">SAS Programming Course</a></li>
+            <li><a href="#">Natural Language Processing Course</a></li>
+          </ul>
+        </div>
+      </div>
+
+    <div class="footer">
+        <div class="footer-column">
+          <ul>
+            <li><a href="#">Refund Policy</a></li>
+            <li><a href="#">IST Scholarship</a></li>
+            <li><a href="#">Coupon code and offers</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Internshala</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <ul>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <a href="#"><img src="insta.jpeg" alt="Instagram"></a>
+          <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+          <a href="#"><img src="youtube.png" alt="YouTube"></a>
+        </div>
+      </div>
+    <script src="internsala.js">
+    // dropdown selection
+    document.querySelector('.custom-select-wrapper').addEventListener('mouseover', function() {
+            this.querySelector('.custom-select').classList.add('open');
+    });
+
+    document.querySelector('.custom-select-wrapper').addEventListener('mouseout', function() {
+            this.querySelector('.custom-select').classList.remove('open');
+    });
+    // sliding picture
+    document.addEventListener('DOMContentLoaded', () => {
+        const gallery = document.querySelector('.gallery');
+        const firstSet = gallery.innerHTML;
+        gallery.innerHTML += firstSet;
+        const images = gallery.querySelectorAll('img');
+        images.forEach(img => {
+            img.addEventListener('mouseover', () => {
+                img.style.filter = 'grayscale(0%)';
+            });
+            img.addEventListener('mouseout', () => {
+                img.style.filter = 'grayscale(100%)';
+            });
+        });
+    });
+    </script>
+</body>
+</html>
